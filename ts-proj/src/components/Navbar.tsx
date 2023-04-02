@@ -23,7 +23,7 @@ const Navbar: React.FC<NavbarProps> = () => {
                 <Nav.Link as={NavLink} to='store'>Store</Nav.Link>
                 <Nav.Link as={NavLink} to='about'>About</Nav.Link>
             </Nav>
-            <Button style={{width: '3.5rem', height: '3.5rem', position: 'relative'}}
+            <Button style={{width: '3rem', height: '3rem', position: 'relative'}}
                 className='rounded-circle'
             >
                 <svg
@@ -36,8 +36,8 @@ const Navbar: React.FC<NavbarProps> = () => {
                 <div className='rounded-circle bg-danger d-flex justify-content-center align-items-center'
                     style={{
                         color: 'white',
-                        width: '1.75rem',
-                        height: '1.75rem',
+                        width: '1.5rem',
+                        height: '1.5rem',
                         position: 'absolute',
                         bottom: 0,
                         right: 0,

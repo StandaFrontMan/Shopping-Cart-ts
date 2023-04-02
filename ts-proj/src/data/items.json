@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "Ultraboots 23 Shoes",
+        "price": 190,
+        "imgUrl": "/images/ultraboost.jpg"
+    },
+    {
+        "id": 2,
+        "name": "NMD_V3 Shoes",
+        "price": 170,
+        "imgUrl": "/images/nmd_v3.jpg"
+    },
+    {
+        "id": 3,
+        "name": "ZNSORED Shoes",
+        "price": 80,
+        "imgUrl": "/images/znsored.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Gazelle Shoes",
+        "price": 100,
+        "imgUrl": "/images/gazelle.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Superstar Shoes",
+        "price": 100,
+        "imgUrl": "/images/superstart.jpg"
+    }
+]
