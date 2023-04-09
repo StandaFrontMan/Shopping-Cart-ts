@@ -4,6 +4,7 @@ import {
     Card,
 } from 'react-bootstrap'
 import { formatCurrency } from '../utilities/formatCurrency';
+import { useShoppingCart } from '../context/ShoppingCartContext';
 
 export interface StoreItemProps {
     id: number;
@@ -14,7 +15,9 @@ export interface StoreItemProps {
 
 const StoreItem: React.FC<StoreItemProps> = ({id, name, price, imgUrl}) => {
 
-const quantity: number = 1;
+    const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart} = useShoppingCart()
+
+    const quantity: number = getItemQuantity(id);
 
   return (
     <Card className='h-100'>
@@ -32,7 +35,9 @@ const quantity: number = 1;
             <div className='mt-auto'>
                 {
                     quantity == 0 ? (
-                        <Button className='w-100'>
+                        <Button className='w-100'
+                            onClick={() => increaseCartQuantity(id)}
+                        >
                             + Add to Cart
                         </Button>
                     ) : (
@@ -42,14 +47,17 @@ const quantity: number = 1;
                             <div className='d-flex align-items-center justify-content-center'
                                 style={{gap: '.5rem'}}
                             >
-                                <Button>-</Button>
+                                <Button onClick={() => decreaseCartQuantity(id)}>-</Button>
                                 <div>
                                     <span className='fs-1'>{quantity} </span>
                                     in Cart
                                 </div>
-                                <Button>+</Button>
+                                <Button onClick={() => increaseCartQuantity(id)}>+</Button>
                             </div>
-                            <Button variant='danger' size='sm'>
+                            <Button variant='danger'
+                                size='sm'
+                                onClick={() => removeFromCart(id)}
+                            >
                                 Remove
                             </Button>
                         </div>

@@ -8,6 +8,7 @@ import {
 import {
     NavLink
 } from 'react-router-dom'
+import { useShoppingCart } from '../context/ShoppingCartContext'
 
 
 export interface NavbarProps {
@@ -15,6 +16,9 @@ export interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = () => {
+
+    const {openCart, cartQuantity} = useShoppingCart()
+
   return (
     <NavbarBS sticky='top' className='bg-white shadow-sm mb-3'>
         <Container>
@@ -25,6 +29,7 @@ const Navbar: React.FC<NavbarProps> = () => {
             </Nav>
             <Button style={{width: '3rem', height: '3rem', position: 'relative'}}
                 className='rounded-circle'
+                onClick={openCart}
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +49,7 @@ const Navbar: React.FC<NavbarProps> = () => {
                         transform: 'translate(25%, 25%)',
                     }}
                 >
-                    3
+                    {cartQuantity}
                 </div>
             </Button> 
         </Container>
