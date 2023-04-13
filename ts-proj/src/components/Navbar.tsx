@@ -12,12 +12,12 @@ import { useShoppingCart } from '../context/ShoppingCartContext'
 
 
 export interface NavbarProps {
-
+    
 }
 
 const Navbar: React.FC<NavbarProps> = () => {
 
-    const {openCart, cartQuantity} = useShoppingCart()
+    const {openCart, cartQuantity,} = useShoppingCart()
 
   return (
     <NavbarBS sticky='top' className='bg-white shadow-sm mb-3'>
@@ -27,7 +27,8 @@ const Navbar: React.FC<NavbarProps> = () => {
                 <Nav.Link as={NavLink} to='store'>Store</Nav.Link>
                 <Nav.Link as={NavLink} to='about'>About</Nav.Link>
             </Nav>
-            <Button style={{width: '3rem', height: '3rem', position: 'relative'}}
+            {cartQuantity > 0 && (
+                <Button style={{width: '3rem', height: '3rem', position: 'relative'}}
                 className='rounded-circle'
                 onClick={openCart}
             >
@@ -50,8 +51,11 @@ const Navbar: React.FC<NavbarProps> = () => {
                     }}
                 >
                     {cartQuantity}
+                    
                 </div>
-            </Button> 
+
+                
+            </Button>)}
         </Container>
     </NavbarBS>
   )
